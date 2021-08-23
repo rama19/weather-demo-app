@@ -1,0 +1,22 @@
+<ion-card>
+    <ion-card-header class="card-title"
+        >{{ location.Name }}, {{ location.Country }}</ion-card-header
+    >
+    <ion-card-content>
+        <span class="temp-wrapper">
+            <span class="main">{{ location.Temp }}</span>
+            <span>{{ location.MaxTemp }} / {{ location.MinTemp }}</span>
+        </span>
+        <span class="chart">
+            <canvas
+                baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                [options]="options"
+            >
+            </canvas>
+            <span class="value"> {{ location.Humidity }}%</span>
+        </span>
+    </ion-card-content>
+</ion-card>

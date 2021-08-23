@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Add cities</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="stacked">City</ion-label>
+        <ion-input [(ngModel)]="cityName"> </ion-input>
+    </ion-item>
+    <ion-button size="small" color="primary" (click)="addCity()"
+        >Add</ion-button
+    >
+
+    <ion-card class="city-card" *ngFor="let city of cities"
+        >{{ city }}
+        <ion-icon
+            name="close"
+            color="danger"
+            (click)="removeCity(city)"
+        ></ion-icon>
+    </ion-card>
+</ion-content>

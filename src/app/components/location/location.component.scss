@@ -1,0 +1,28 @@
+.card-title {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.temp-wrapper {
+    .main {
+        font-size: 25px;
+        padding-right: 15px;
+        font-weight: bold;
+    }
+}
+
+.chart {
+    width: 150px;
+    height: auto;
+    display: flex;
+    position: absolute;
+    right: -30px;
+    top: -37px;
+
+    .value {
+        position: absolute;
+        right: 58px;
+        top: 32px;
+        font-size: 16px;
+    }
+}

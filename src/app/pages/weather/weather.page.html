@@ -1,0 +1,78 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title color="primary">Weather</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-content *ngIf="currentWeather">
+            <span class="main-info-wrapper">
+                <span class="main-value">
+                    <span>{{ locationName }}</span>
+                    <span> <img src="{{currentWeather.Icon}}" /></span>
+
+                    <span style="color: var(--ion-color-primary)"
+                        >{{ currentWeather.Temp }} / {{ currentWeather.Status
+                        }}</span
+                    >
+                </span>
+            </span>
+        </ion-card-content>
+    </ion-card>
+    <hourly-forecast [data]="hourlyWeather"></hourly-forecast>
+    <daily-forecast [data]="dailyWeather"></daily-forecast>
+    <ion-card>
+        <ion-card-content *ngIf="currentWeather">
+            <div class="hum-wrapper">
+                <h4>Humidity</h4>
+                <div class="hum-container">
+                    <div class="chart-wrapper">
+                        <canvas
+                            baseChart
+                            [data]="doughnutChartData"
+                            [chartType]="doughnutChartType"
+                            [colors]="doughnutChartColors"
+                            [options]="options"
+                        >
+                        </canvas>
+                        <span>{{ currentWeather.Humidity }}%</span>
+                    </div>
+                    <div class="info-wrapper">
+                        <span>Feels like {{ currentWeather.RealFeel }}</span>
+                        <span>UV index {{ currentWeather.UVindex }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wind-wrapper">
+                <h4>Wind details</h4>
+                <span class="wind-container">
+                    <img src="/assets/images/windmill.png" />
+                    <span>Speed {{ currentWeather.WindSpeed }}km/h</span>
+                </span>
+            </div>
+            <div class="sun-wrapper" *ngIf="currentWeather">
+                <h4>Sunrise and sunset</h4>
+                <span class="sunset-sunrise">
+                    <span class="sun-item">
+                        <img src="/assets/images/sunrise.png" />
+                        <span>{{ currentWeather.Sunrise }}</span>
+                    </span>
+                    <span class="sun-item">
+                        <img src="/assets/images/sunset.png" />
+                        <span>{{ currentWeather.Sunset }}</span>
+                    </span>
+                </span>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <ion-refresher (ionRefresh)="refresh($event)" slot="fixed">
+        <ion-refresher-content
+            refreshingSpinner="circles"
+            refreshingText="Refreshing..."
+        >
+        </ion-refresher-content>
+    </ion-refresher>
+</ion-content>

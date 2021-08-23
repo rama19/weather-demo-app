@@ -1,0 +1,9 @@
+<ion-card class="hourly-wrapper">
+    <div class="hour-card" *ngFor="let item of data">
+        <span class="hourly-content">
+            <span>{{ item.Time }}</span>
+            <span><img src="{{ item.Icon }}" /></span>
+            <span>{{ item.Temperature }}</span>
+        </span>
+    </div>
+</ion-card>

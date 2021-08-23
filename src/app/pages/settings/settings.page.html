@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Settings</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="stacked">Measurement unit</ion-label>
+        <ion-select
+            interface="popover"
+            [value]="defaultUom"
+            (ionChange)="saveDefaultUnit($event)"
+        >
+            <ion-select-option [value]="temperatureUnit.Celsius"
+                >&deg;C</ion-select-option
+            >
+            <ion-select-option [value]="temperatureUnit.Fahrenheit"
+                >&deg;F</ion-select-option
+            >
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="stacked">Screen lock security</ion-label>
+        <ion-select
+            interface="popover"
+            [(ngModel)]="screenLockSettings"
+            (ngModelChange)="saveScreenLockSettings()"
+        >
+            <ion-select-option [value]="true">Enable</ion-select-option>
+            <ion-select-option [value]="false">Disable</ion-select-option>
+        </ion-select>
+    </ion-item>
+</ion-content>

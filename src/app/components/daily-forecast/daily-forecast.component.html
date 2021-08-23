@@ -1,0 +1,14 @@
+<ion-card>
+    <ion-list>
+        <ion-item *ngFor="let item of data">
+            <span class="daily-content">
+                <span class="day"
+                    ><span>{{ item.Day }}</span
+                    ><span>{{ item.Date }}</span></span
+                >
+                <span><img src="{{ item.Icon }}" /></span>
+                <span>{{ item.MaxTemp }} / {{ item.MinTemp }}</span>
+            </span>
+        </ion-item>
+    </ion-list>
+</ion-card>

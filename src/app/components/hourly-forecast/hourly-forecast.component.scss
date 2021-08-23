@@ -1,0 +1,24 @@
+.hourly-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    .hour-card {
+        min-width: 70px;
+        padding: 10px;
+        font-size: 12px;
+        .hourly-content {
+            span {
+                display: flex;
+                width: inherit;
+                justify-content: center;
+            }
+        }
+    }
+}
+.hourly-wrapper {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
